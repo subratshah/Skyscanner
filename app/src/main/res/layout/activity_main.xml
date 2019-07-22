@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="viewmodel"
+            name="viewModel"
             type="sample.com.skyscanner.SkyViewModel" />
     </data>
 
@@ -122,6 +122,7 @@
             android:layout_marginBottom="8dp"
             android:text="Scan Sky"
             android:textSize="30dp"
+            android:onClick="onClickScan"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
