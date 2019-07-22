@@ -1,14 +1,22 @@
 package sample.com.skyscanner;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.LifecycleOwner;
+
+import sample.com.skyscanner.databinding.ActivityMainBinding;
+
+public class MainActivity extends AppCompatActivity implements LifecycleOwner {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+
+        SkyViewModel skyViewModel = new SkyViewModel();
+        this.getLifecycle().addObserver(skyViewModel);
     }
 }
