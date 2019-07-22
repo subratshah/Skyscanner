@@ -15,8 +15,9 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner {
         super.onCreate(savedInstanceState);
         ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-
         SkyViewModel skyViewModel = new SkyViewModel();
         this.getLifecycle().addObserver(skyViewModel);
+
+        activityMainBinding.setViewModel(skyViewModel);
     }
 }
