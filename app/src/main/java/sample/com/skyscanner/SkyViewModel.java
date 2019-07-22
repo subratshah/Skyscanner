@@ -15,15 +15,8 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     void init() {
-        itemViewModels.add(new ItemViewModel("Chennai,in"));
-        itemViewModels.add(new ItemViewModel("Varanasi,in"));
-        itemViewModels.add(new ItemViewModel("Delhi,in"));
-        itemViewModels.add(new ItemViewModel("Bengaluru,in"));
-        itemViewModels.add(new ItemViewModel("Mumbai,in"));
-        itemViewModels.add(new ItemViewModel("London,uk"));
-        itemViewModels.add(new ItemViewModel("Sydney,au"));
 
-        recyclerAdapter = new RecyclerAdapter(itemViewModels);
+        recyclerAdapter = new RecyclerAdapter();
     }
 
     public RecyclerAdapter getAdapter() {
