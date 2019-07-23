@@ -24,9 +24,7 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
     public List<ItemViewModel> itemViewModels = new ArrayList<>();
     private RecyclerAdapter recyclerAdapter;
 
-    public ObservableField<String> country = new ObservableField<>();
     public ObservableField<String> currency = new ObservableField<>();
-    public ObservableField<String> locale = new ObservableField<>();
     public ObservableField<String> origin = new ObservableField<>();
     public ObservableField<String> dest = new ObservableField<>();
     public ObservableField<String> date = new ObservableField<>();
@@ -41,8 +39,8 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
         return recyclerAdapter;
     }
 
-    public void getQuotes(String country, String currency, String locale, String origin, String dest, String date) {
-        Call<Model> call = scannerService.getQoutes(country, currency, locale, origin, dest, date);
+    public void getQuotes(String country, String currency, String origin, String dest, String date) {
+        Call<Model> call = scannerService.getQuotes(country, currency, origin, dest, date);
         call.enqueue(new Callback<Model>() {
 
             @Override
