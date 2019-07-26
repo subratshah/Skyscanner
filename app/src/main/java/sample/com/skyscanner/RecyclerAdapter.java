@@ -2,9 +2,9 @@ package sample.com.skyscanner;
 
 public class RecyclerAdapter {
 //
-//    private List<ItemViewModel> itemViewModels;
+//    private List<MainData> itemViewModels;
 //
-//    RecyclerAdapter(List<ItemViewModel> itemViewModels) {
+//    RecyclerAdapter(List<MainData> itemViewModels) {
 //        this.itemViewModels = itemViewModels;
 //    }
 //
@@ -17,7 +17,7 @@ public class RecyclerAdapter {
 //
 //    @Override
 //    public void onBindViewHolder(@NonNull RecyclerAdapter.ViewHolder viewHolder, int i) {
-//        ItemViewModel itemViewModel = itemViewModels.get(i);
+//        MainData itemViewModel = itemViewModels.get(i);
 //        viewHolder.bind(itemViewModel);
 //    }
 //
@@ -35,7 +35,7 @@ public class RecyclerAdapter {
 //            this.recyclerviewItemBinding = recyclerviewItemBinding;
 //        }
 //
-//        public void bind(ItemViewModel itemViewModel) {
+//        public void bind(MainData itemViewModel) {
 //            recyclerviewItemBinding.setItemViewModel(itemViewModel);
 //        }
 //    }

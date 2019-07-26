@@ -1,21 +1,29 @@
-package sample.com.skyscanner.Network;
+package sample.com.skyscanner.network;
 
-import retrofit2.Call;
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
-import sample.com.skyscanner.Objects.Model;
+import sample.com.skyscanner.model.BaseModel;
 
 public interface ScannerService {
 
-    @Headers({"X-RapidAPI-Host: skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-            "X-RapidAPI-Key: 08aa8a2995msh3494129b67c7601p1d69bdjsn3599b96f027b"})
+    @Headers("X-RapidAPI-Host: skyscanner-skyscanner-flight-search-v1.p.rapidapi.com")
 
-    @GET("/{country}/{currency}/{locale}/{origin}/{dest}/{date}")
-    Call<Model> getQoutes(@Query("country") String country,
-                          @Query("currency") String currency,
-                          @Query("locale") String locale,
-                          @Query("origin") String origin,
-                          @Query("dest") String dest,
-                          @Query("date") String date);
+    @GET("browsequotes/v1.0//{country}/{currency}/en-US/{origin}/{dest}/{date}")
+    Observable<BaseModel> getQuotes(@Path("country") String country,
+                                    @Path("currency") String currency,
+                                    @Path("origin") String origin,
+                                    @Path("dest") String dest,
+                                    @Path("date") String date,
+                                    @Query("inDate") String inDate);
+
+    @GET("browseroutes/v1.0//{country}/{currency}/en-US/{origin}/{dest}/{date}")
+    Observable<BaseModel> getRoutes(@Path("country") String country,
+                                    @Path("currency") String currency,
+                                    @Path("origin") String origin,
+                                    @Path("dest") String dest,
+                                    @Path("date") String date,
+                                    @Query("inDate") String inDate);
 }

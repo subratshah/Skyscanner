@@ -7,13 +7,13 @@
 
         <variable
             name="viewModel"
-            type="sample.com.skyscanner.SkyViewModel" />
+            type="sample.com.skyscanner.MainData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".ui.MainActivity">
 
         <TextView
             android:id="@+id/brandText"
@@ -46,7 +46,7 @@
             android:layout_marginTop="100dp"
             android:layout_marginEnd="8dp"
             android:hint="ORIGIN"
-            android:text="@={viewModel.origin}"
+            android:text="SFO-sky"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintStart_toEndOf="@+id/originImage"
@@ -69,7 +69,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="8dp"
             android:hint="DESTINATION"
-            android:text="@={viewModel.dest}"
+            android:text="JFK-sky"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/destImage"
             app:layout_constraintTop_toBottomOf="@+id/originText" />
@@ -91,7 +91,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="8dp"
             android:hint="Date of Journey"
-            android:text="@={viewModel.date}"
+            android:text="2019-09-01"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/dateImage"
             app:layout_constraintTop_toBottomOf="@+id/destText" />
@@ -113,7 +113,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="8dp"
             android:hint="INR or USD"
-            android:text="@={viewModel.currency}"
+            android:text="USD"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/currImage"
             app:layout_constraintTop_toBottomOf="@+id/dateText" />
