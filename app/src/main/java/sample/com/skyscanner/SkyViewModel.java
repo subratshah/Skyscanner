@@ -10,20 +10,14 @@ import sample.com.skyscanner.network.ScannerServiceManager;
 
 public class SkyViewModel extends ViewModel implements LifecycleObserver {
 
-    MainData mainData;
-
-    String date;
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
+    Input input;
 
     ScannerServiceManager scannerServiceManager;
     private RecyclerAdapter recyclerAdapter;
+
+    public SkyViewModel(Input input) {
+        this.input = input;
+    }
 
     public SkyViewModel(ScannerServiceManager scannerServiceManager) {
         this.scannerServiceManager = scannerServiceManager;
@@ -49,11 +43,11 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
     private void onFailure(Throwable throwable) {
     }
 
-    public MainData getMainData() {
-        return mainData;
+    public Input getInput() {
+        return input;
     }
 
-    public void setMainData(MainData mainData) {
-        this.mainData = mainData;
+    public void setInput(Input input) {
+        this.input = input;
     }
 }

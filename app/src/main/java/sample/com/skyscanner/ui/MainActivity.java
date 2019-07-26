@@ -11,30 +11,30 @@ import androidx.lifecycle.LifecycleOwner;
 
 import javax.inject.Inject;
 
-import sample.com.skyscanner.MainData;
+import sample.com.skyscanner.Input;
 import sample.com.skyscanner.R;
 import sample.com.skyscanner.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements LifecycleOwner {
 
+    TextView textView;
+
     @Inject
-    SkyViewModel skyViewModel;
+    Input input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        activityMainBinding.setViewModel(mainData);
+        activityMainBinding.setViewModel(input);
         textView = findViewById(R.id.dateText);
+        input.setDate(textView.toString());
     }
 
     public void onClickScan(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
-
-        Bundle bundle = new Bundle();
-        bundle.putString("date", mainData.getDate());
-        intent.putExtra("bundle", bundle);
+        intent.putExtra("input", input);
 
         startActivity(intent);
     }
