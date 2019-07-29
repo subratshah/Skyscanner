@@ -9,6 +9,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -26,7 +27,7 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
     List<Output> outputs = new ArrayList<>();
 
     ScannerServiceManager scannerServiceManager;
-    public RecyclerAdapter recyclerAdapter;
+    public RecyclerAdapter adapter = new RecyclerAdapter(outputs);
 
     @Inject
     public SkyViewModel(ScannerServiceManager scannerServiceManager) {
@@ -37,11 +38,10 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public void init() {
         scannerServiceManager.getQuotes(input.currency, input.origin, input.dest, input.outDate).subscribe(this::onNext, this::onError);
-
     }
 
     private void onError(Throwable throwable) {
-        Log.e(TAG, "onError: " + throwable.getStackTrace());
+        Log.e(TAG, "onError: " + Arrays.toString(throwable.getStackTrace()));
     }
 
     private void onNext(BaseModel baseModel) {
@@ -57,12 +57,11 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
             output.setPrice(quote.getMinPrice());
             outputs.add(output);
         }
-
-        recyclerAdapter = new RecyclerAdapter(outputs);
+        adapter.notifyDataSetChanged();
     }
 
-    public RecyclerAdapter getRecyclerAdapter() {
-        return recyclerAdapter;
+    public RecyclerAdapter getAdapter() {
+        return adapter;
     }
 
     public Input getInput() {

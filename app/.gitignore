@@ -1,1 +1,4 @@
 /build
+/generatedJava
+/.gradle
+/.idea

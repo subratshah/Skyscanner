@@ -17,47 +17,57 @@
 
         <TextView
             android:id="@+id/airline"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="20dp"
             android:text="Airline"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/dateText" />
 
         <TextView
             android:id="@+id/dateText"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="120dp"
             android:text="Date"
-            app:layout_constraintStart_toEndOf="@+id/airline"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/airline" />
 
         <TextView
             android:id="@+id/timeText"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="200dp"
             android:text="Time"
-            app:layout_constraintStart_toEndOf="@+id/dateText"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/dateText" />
 
         <TextView
             android:id="@+id/directText"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="290dp"
             android:text="Direct"
-            app:layout_constraintStart_toEndOf="@+id/timeText"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/dateText" />
 
         <TextView
             android:id="@+id/priceText"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="370dp"
             android:text="Price"
-            app:layout_constraintStart_toEndOf="@+id/directText"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/dateText" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -65,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="50dp"
-            android:adapter="@{viewModel.recyclerAdapter}"
+            android:adapter="@{viewModel.adapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="@+id/priceText"
             app:layout_constraintStart_toStartOf="@+id/airline"

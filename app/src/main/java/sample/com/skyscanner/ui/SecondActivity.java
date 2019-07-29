@@ -33,7 +33,6 @@ public class SecondActivity extends AppCompatActivity implements LifecycleOwner 
         input.setCurrency(getIntent().getStringExtra("curr"));
 
         skyViewModel.setInput(input);
-        activitySecondBinding.recyclerView.setAdapter(skyViewModel.recyclerAdapter);
         activitySecondBinding.setViewModel(skyViewModel);
 
         this.getLifecycle().addObserver(skyViewModel);
