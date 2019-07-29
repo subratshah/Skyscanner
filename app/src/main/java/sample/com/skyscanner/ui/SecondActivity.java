@@ -25,7 +25,6 @@ public class SecondActivity extends AppCompatActivity implements LifecycleOwner 
         AndroidInjection.inject(this);
         ActivitySecondBinding activitySecondBinding = DataBindingUtil.setContentView(this, R.layout.activity_second);
 
-//        skyViewModel.setInput((Input) getIntent().getSerializableExtra("input"));
         Input input = new Input();
         input.setOutDate(getIntent().getStringExtra("date"));
         input.setOrigin(getIntent().getStringExtra("origin"));

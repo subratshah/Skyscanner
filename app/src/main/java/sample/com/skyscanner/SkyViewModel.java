@@ -54,7 +54,7 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
             }
             output.setDate(quote.getQuoteDateTime());
             output.setDirect(quote.getDirect() ? "Direct" : "Indirect");
-            output.setPrice(quote.getMinPrice());
+            output.setPrice(baseModel.getCurrencies().get(0).getSymbol() + quote.getMinPrice());
             outputs.add(output);
         }
         adapter.notifyDataSetChanged();

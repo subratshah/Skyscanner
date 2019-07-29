@@ -17,8 +17,6 @@ import sample.com.skyscanner.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements LifecycleOwner {
 
-    TextView textView;
-
     @Inject
     Input input;
 
@@ -27,27 +25,29 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner {
         super.onCreate(savedInstanceState);
         ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-//        input = new Input();
-//        textView = findViewById(R.id.dateText);
-//        input.setOutDate(textView.toString());
-//        textView = findViewById(R.id.originText);
-//        input.setOrigin(textView.toString());
-//        textView = findViewById(R.id.destText);
-//        input.setDest(textView.toString());
-//        textView = findViewById(R.id.currText);
-//        input.setCurrency(textView.toString());
-
         activityMainBinding.setViewModel(input);
-
     }
 
     public void onClickScan(View view) {
+        TextView textView;
+        String text;
         Intent intent = new Intent(this, SecondActivity.class);
-//        intent.putExtra("input", input);
-        intent.putExtra("date", "2019-09-01");
-        intent.putExtra("origin", "SFO-sky");
-        intent.putExtra("dest", "ORD-sky");
-        intent.putExtra("curr", "USD");
+
+        textView = findViewById(R.id.dateText);
+        text = String.valueOf(textView.getText());
+        intent.putExtra("date", text);
+
+        textView = findViewById(R.id.originText);
+        text = String.valueOf(textView.getText());
+        intent.putExtra("origin", text + "-sky");
+
+        textView = findViewById(R.id.destText);
+        text = String.valueOf(textView.getText());
+        intent.putExtra("dest", text + "-sky");
+
+        textView = findViewById(R.id.currText);
+        text = String.valueOf(textView.getText());
+        intent.putExtra("curr", text);
 
         startActivity(intent);
     }
