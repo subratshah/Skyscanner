@@ -11,7 +11,7 @@ public class Input extends BaseObservable implements LifecycleObserver, Serializ
 
     String origin;
     String dest;
-    String date;
+    String outDate;
     String currency;
 
     @Inject
@@ -34,12 +34,12 @@ public class Input extends BaseObservable implements LifecycleObserver, Serializ
         this.dest = dest;
     }
 
-    public String getDate() {
-        return date;
+    public String getOutDate() {
+        return outDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setOutDate(String outDate) {
+        this.outDate = outDate;
     }
 
     public String getCurrency() {

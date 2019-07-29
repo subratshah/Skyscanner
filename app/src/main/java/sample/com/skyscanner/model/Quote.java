@@ -9,7 +9,7 @@ public class Quote {
     private int quoteId;
 
     @SerializedName("MinPrice")
-    private int minPrice;
+    private String minPrice;
 
     @SerializedName("Direct")
     private Boolean direct;
@@ -28,11 +28,11 @@ public class Quote {
         this.quoteId = quoteId;
     }
 
-    public int getMinPrice() {
+    public String getMinPrice() {
         return minPrice;
     }
 
-    public void setMinPrice(int minPrice) {
+    public void setMinPrice(String minPrice) {
         this.minPrice = minPrice;
     }
 

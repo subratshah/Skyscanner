@@ -27,14 +27,27 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner {
         super.onCreate(savedInstanceState);
         ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+//        input = new Input();
+//        textView = findViewById(R.id.dateText);
+//        input.setOutDate(textView.toString());
+//        textView = findViewById(R.id.originText);
+//        input.setOrigin(textView.toString());
+//        textView = findViewById(R.id.destText);
+//        input.setDest(textView.toString());
+//        textView = findViewById(R.id.currText);
+//        input.setCurrency(textView.toString());
+
         activityMainBinding.setViewModel(input);
-        textView = findViewById(R.id.dateText);
-        input.setDate(textView.toString());
+
     }
 
     public void onClickScan(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
-        intent.putExtra("input", input);
+//        intent.putExtra("input", input);
+        intent.putExtra("date", "2019-09-01");
+        intent.putExtra("origin", "SFO-sky");
+        intent.putExtra("dest", "ORD-sky");
+        intent.putExtra("curr", "USD");
 
         startActivity(intent);
     }

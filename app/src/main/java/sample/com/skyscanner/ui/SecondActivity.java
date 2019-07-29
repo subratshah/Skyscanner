@@ -8,6 +8,7 @@ import androidx.lifecycle.LifecycleOwner;
 
 import javax.inject.Inject;
 
+import dagger.android.AndroidInjection;
 import sample.com.skyscanner.Input;
 import sample.com.skyscanner.R;
 import sample.com.skyscanner.SkyViewModel;
@@ -21,9 +22,20 @@ public class SecondActivity extends AppCompatActivity implements LifecycleOwner 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AndroidInjection.inject(this);
         ActivitySecondBinding activitySecondBinding = DataBindingUtil.setContentView(this, R.layout.activity_second);
 
-        Input input = (Input) getIntent().getSerializableExtra("input");
-        activitySecondBinding.setViewModel(input);
+//        skyViewModel.setInput((Input) getIntent().getSerializableExtra("input"));
+        Input input = new Input();
+        input.setOutDate(getIntent().getStringExtra("date"));
+        input.setOrigin(getIntent().getStringExtra("origin"));
+        input.setDest(getIntent().getStringExtra("dest"));
+        input.setCurrency(getIntent().getStringExtra("curr"));
+
+        skyViewModel.setInput(input);
+        activitySecondBinding.recyclerView.setAdapter(skyViewModel.recyclerAdapter);
+        activitySecondBinding.setViewModel(skyViewModel);
+
+        this.getLifecycle().addObserver(skyViewModel);
     }
 }

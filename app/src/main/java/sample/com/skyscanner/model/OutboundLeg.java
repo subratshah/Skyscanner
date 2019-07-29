@@ -1,7 +1,6 @@
 
 package sample.com.skyscanner.model;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -9,39 +8,38 @@ import java.util.List;
 public class OutboundLeg {
 
     @SerializedName("CarrierIds")
-    @Expose
-    private List<Integer> carrierIds = null;
+    private List<String> carrierIds = null;
+
     @SerializedName("OriginId")
-    @Expose
-    private Integer originId;
+    private String originId;
+
     @SerializedName("DestinationId")
-    @Expose
-    private Integer destinationId;
+    private String destinationId;
+
     @SerializedName("DepartureDate")
-    @Expose
     private String departureDate;
 
-    public List<Integer> getCarrierIds() {
+    public List<String> getCarrierIds() {
         return carrierIds;
     }
 
-    public void setCarrierIds(List<Integer> carrierIds) {
+    public void setCarrierIds(List<String> carrierIds) {
         this.carrierIds = carrierIds;
     }
 
-    public Integer getOriginId() {
+    public String getOriginId() {
         return originId;
     }
 
-    public void setOriginId(Integer originId) {
+    public void setOriginId(String originId) {
         this.originId = originId;
     }
 
-    public Integer getDestinationId() {
+    public String getDestinationId() {
         return destinationId;
     }
 
-    public void setDestinationId(Integer destinationId) {
+    public void setDestinationId(String destinationId) {
         this.destinationId = destinationId;
     }
 

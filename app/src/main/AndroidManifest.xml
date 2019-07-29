@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sample.com.skyscanner">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".dependencyInjection.BaseApplication"
         android:allowBackup="true"

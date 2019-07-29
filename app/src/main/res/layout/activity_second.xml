@@ -6,29 +6,38 @@
 
         <variable
             name="viewModel"
-            type="sample.com.skyscanner.Input" />
+            type="sample.com.skyscanner.SkyViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="16dp"
         tools:context=".ui.SecondActivity">
+
+        <TextView
+            android:id="@+id/airline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Airline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dateText" />
 
         <TextView
             android:id="@+id/dateText"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@{viewModel.date}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="Date"
+            app:layout_constraintStart_toEndOf="@+id/airline"
+            app:layout_constraintTop_toTopOf="@+id/airline" />
 
         <TextView
             android:id="@+id/timeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="50dp"
             android:text="Time"
             app:layout_constraintStart_toEndOf="@+id/dateText"
             app:layout_constraintTop_toTopOf="@+id/dateText" />
@@ -37,26 +46,29 @@
             android:id="@+id/directText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="100dp"
+            android:layout_marginStart="50dp"
             android:text="Direct"
-            app:layout_constraintEnd_toStartOf="@+id/priceText"
+            app:layout_constraintStart_toEndOf="@+id/timeText"
             app:layout_constraintTop_toTopOf="@+id/dateText" />
 
         <TextView
             android:id="@+id/priceText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="50dp"
             android:text="Price"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/directText"
             app:layout_constraintTop_toTopOf="@+id/dateText" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:adapter="@{viewModel.recyclerAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="@+id/priceText"
+            app:layout_constraintStart_toStartOf="@+id/airline"
             app:layout_constraintTop_toBottomOf="@+id/dateText">
 
         </androidx.recyclerview.widget.RecyclerView>
