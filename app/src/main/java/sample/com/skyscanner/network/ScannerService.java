@@ -10,14 +10,8 @@ public interface ScannerService {
 
     @Headers("X-RapidAPI-Host: skyscanner-skyscanner-flight-search-v1.p.rapidapi.com")
 
-    @GET("browsequotes/v1.0/US/{currency}/en-US/{origin}/{dest}/{outDate}")
-    Observable<BaseModel> getQuotes(@Path("currency") String currency,
-                                    @Path("origin") String origin,
-                                    @Path("dest") String dest,
-                                    @Path("outDate") String outDate);
-
     @GET("browseroutes/v1.0/US/{currency}/en-US/{origin}/{dest}/{outDate}")
-    Observable<BaseModel> getRoutes(@Path("currency") String currency,
+    Observable<BaseModel> getRuotes(@Path("currency") String currency,
                                     @Path("origin") String origin,
                                     @Path("dest") String dest,
                                     @Path("outDate") String outDate);

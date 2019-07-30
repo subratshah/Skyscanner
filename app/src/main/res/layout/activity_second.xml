@@ -53,9 +53,9 @@
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="290dp"
+            android:layout_marginStart="260dp"
             android:onClick="@{viewModel::sortDirect}"
-            android:text="↑Direct"
+            android:text="⇅Direct"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/dateText" />
@@ -65,9 +65,9 @@
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="370dp"
+            android:layout_marginStart="340dp"
             android:onClick="@{viewModel::sortPrice}"
-            android:text="↑Price"
+            android:text="⇅Price"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/dateText" />

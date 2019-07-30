@@ -16,7 +16,7 @@ public class ScannerServiceManager {
         this.scannerService = scannerService;
     }
 
-    public Observable<BaseModel> getQuotes(String currency, String origin, String dest, String outDate) {
-        return scannerService.getQuotes(currency, origin, dest, outDate).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    public Observable<BaseModel> getRuotes(String currency, String origin, String dest, String outDate) {
+        return scannerService.getRuotes(currency, origin, dest, outDate).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 }

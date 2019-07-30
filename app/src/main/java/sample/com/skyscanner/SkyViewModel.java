@@ -40,7 +40,7 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
     @SuppressLint("CheckResult")
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public void init() {
-        scannerServiceManager.getQuotes(input.currency, input.origin, input.dest, input.outDate).subscribe(this::onNext, this::onError);
+        scannerServiceManager.getRuotes(input.currency, input.origin, input.dest, input.outDate).subscribe(this::onNext, this::onError);
     }
 
     private void onError(Throwable throwable) {
