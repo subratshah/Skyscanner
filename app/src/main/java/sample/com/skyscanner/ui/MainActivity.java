@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner {
 
         textView = findViewById(R.id.originText);
         text = String.valueOf(textView.getText());
-        intent.putExtra("origin", text + "-sky");
+        intent.putExtra("origin", text);
 
         textView = findViewById(R.id.destText);
         text = String.valueOf(textView.getText());
-        intent.putExtra("dest", text + "-sky");
+        intent.putExtra("dest", text);
 
         textView = findViewById(R.id.currText);
         text = String.valueOf(textView.getText());

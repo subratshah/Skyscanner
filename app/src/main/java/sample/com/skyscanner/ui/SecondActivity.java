@@ -31,6 +31,7 @@ public class SecondActivity extends AppCompatActivity implements LifecycleOwner 
         input.setDest(getIntent().getStringExtra("dest"));
         input.setCurrency(getIntent().getStringExtra("curr"));
 
+        setTitle("Flights from " + input.getOrigin() + " to " + input.getDest());
         skyViewModel.setInput(input);
         activitySecondBinding.setViewModel(skyViewModel);
 
