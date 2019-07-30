@@ -26,8 +26,8 @@ import static android.content.ContentValues.TAG;
 public class SkyViewModel extends ViewModel implements LifecycleObserver {
 
     Input input;
-    ScannerServiceManager scannerServiceManager;
-    List<Output> outputs = new ArrayList<>();
+    private ScannerServiceManager scannerServiceManager;
+    private List<Output> outputs = new ArrayList<>();
     public RecyclerAdapter adapter = new RecyclerAdapter(outputs);
     private int directOrder = -1;
     private int priceOrder = -1;
@@ -40,7 +40,7 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
     @SuppressLint("CheckResult")
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public void init() {
-        scannerServiceManager.getRuotes(input.currency, input.origin, input.dest, input.outDate).subscribe(this::onNext, this::onError);
+        scannerServiceManager.getRuotes(input.getCurrency(), input.getOrigin(), input.getDest(), input.getOutDate()).subscribe(this::onNext, this::onError);
     }
 
     private void onError(Throwable throwable) {

@@ -9,17 +9,17 @@ import javax.inject.Inject;
 
 public class Input extends BaseObservable implements LifecycleObserver, Serializable {
 
-    String origin;
-    String dest;
-    String outDate;
-    String currency;
+    private String origin;
+    private String dest;
+    private String outDate;
+    private String currency;
 
     @Inject
     public Input() {
     }
 
     public String getOrigin() {
-        return origin;
+        return origin.toUpperCase().trim();
     }
 
     public void setOrigin(String origin) {
@@ -27,7 +27,7 @@ public class Input extends BaseObservable implements LifecycleObserver, Serializ
     }
 
     public String getDest() {
-        return dest;
+        return dest.toUpperCase().trim();
     }
 
     public void setDest(String dest) {
@@ -43,7 +43,7 @@ public class Input extends BaseObservable implements LifecycleObserver, Serializ
     }
 
     public String getCurrency() {
-        return currency;
+        return currency.toUpperCase().trim();
     }
 
     public void setCurrency(String currency) {
