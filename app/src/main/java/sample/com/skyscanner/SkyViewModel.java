@@ -2,6 +2,7 @@ package sample.com.skyscanner;
 
 import android.annotation.SuppressLint;
 import android.util.Log;
+import android.view.View;
 
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -24,10 +26,11 @@ import static android.content.ContentValues.TAG;
 public class SkyViewModel extends ViewModel implements LifecycleObserver {
 
     Input input;
-    List<Output> outputs = new ArrayList<>();
-
     ScannerServiceManager scannerServiceManager;
+    List<Output> outputs = new ArrayList<>();
     public RecyclerAdapter adapter = new RecyclerAdapter(outputs);
+    private int directOrder = -1;
+    private int priceOrder = -1;
 
     @Inject
     public SkyViewModel(ScannerServiceManager scannerServiceManager) {
@@ -60,15 +63,33 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
         adapter.notifyDataSetChanged();
     }
 
-    public RecyclerAdapter getAdapter() {
-        return adapter;
+    public void sortPrice(View view) {
+        Collections.sort(outputs, Output.PriceComparator);
+        if (priceOrder < 0) {
+            priceOrder = 1;
+        } else {
+            priceOrder = -1;
+            Collections.reverse(outputs);
+        }
+        adapter.notifyDataSetChanged();
     }
 
-    public Input getInput() {
-        return input;
+    public void sortDirect(View view) {
+        Collections.sort(outputs, Output.DirectComparator);
+        if (directOrder < 0) {
+            directOrder = 1;
+        } else {
+            directOrder = -1;
+            Collections.reverse(outputs);
+        }
+        adapter.notifyDataSetChanged();
     }
 
     public void setInput(Input input) {
         this.input = input;
+    }
+
+    public RecyclerAdapter getAdapter() {
+        return adapter;
     }
 }

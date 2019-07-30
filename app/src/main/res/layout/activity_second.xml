@@ -54,7 +54,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="290dp"
-            android:text="Direct"
+            android:onClick="@{viewModel::sortDirect}"
+            android:text="↑Direct"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/dateText" />
@@ -65,7 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="370dp"
-            android:text="Price"
+            android:onClick="@{viewModel::sortPrice}"
+            android:text="↑Price"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/dateText" />

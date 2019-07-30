@@ -1,5 +1,7 @@
 package sample.com.skyscanner;
 
+import java.util.Comparator;
+
 public class Output {
     String date;
     String time;
@@ -46,4 +48,19 @@ public class Output {
     public void setAirline(String airline) {
         this.airline = airline;
     }
+
+    public static Comparator<Output> PriceComparator = new Comparator<Output>() {
+
+        @Override
+        public int compare(Output o1, Output o2) {
+            return o1.getPrice().compareTo(o2.getPrice());
+        }
+    };
+    public static Comparator<Output> DirectComparator = new Comparator<Output>() {
+
+        @Override
+        public int compare(Output o1, Output o2) {
+            return o1.getDirect().compareTo(o2.getDirect());
+        }
+    };
 }
