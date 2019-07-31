@@ -8,46 +8,47 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import io.reactivex.annotations.NonNull;
-import sample.com.skyscanner.databinding.RecyclerviewItemBinding;
+import sample.com.skyscanner.databinding.ItemRecyclerflightBinding;
+import sample.com.skyscanner.viewmodels.FlightItemViewModel;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
-    private List<Output> outputs;
+    private List<FlightItemViewModel> flightItemViewModels;
 
-    RecyclerAdapter(List<Output> outputs) {
-        this.outputs = outputs;
+    public RecyclerAdapter(List<FlightItemViewModel> flightItemViewModels) {
+        this.flightItemViewModels = flightItemViewModels;
     }
 
     @NonNull
     @Override
     public RecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
-        RecyclerviewItemBinding recyclerviewItemBinding = RecyclerviewItemBinding.inflate(layoutInflater, viewGroup, false);
-        return new ViewHolder(recyclerviewItemBinding);
+        ItemRecyclerflightBinding itemRecyclerflightBinding = ItemRecyclerflightBinding.inflate(layoutInflater, viewGroup, false);
+        return new ViewHolder(itemRecyclerflightBinding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapter.ViewHolder viewHolder, int i) {
-        Output output = outputs.get(i);
-        viewHolder.bind(output);
+        FlightItemViewModel flightItemViewModel = flightItemViewModels.get(i);
+        viewHolder.bind(flightItemViewModel);
     }
 
     @Override
     public int getItemCount() {
-        return outputs.size();
+        return flightItemViewModels.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        RecyclerviewItemBinding recyclerviewItemBinding;
+        ItemRecyclerflightBinding itemRecyclerflightBinding;
 
-        public ViewHolder(@NonNull RecyclerviewItemBinding recyclerviewItemBinding) {
-            super(recyclerviewItemBinding.getRoot());
-            this.recyclerviewItemBinding = recyclerviewItemBinding;
+        public ViewHolder(@NonNull ItemRecyclerflightBinding itemRecyclerflightBinding) {
+            super(itemRecyclerflightBinding.getRoot());
+            this.itemRecyclerflightBinding = itemRecyclerflightBinding;
         }
 
-        public void bind(Output output) {
-            recyclerviewItemBinding.setViewModel(output);
+        public void bind(FlightItemViewModel flightItemViewModel) {
+            itemRecyclerflightBinding.setViewModel(flightItemViewModel);
         }
     }
 }

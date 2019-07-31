@@ -1,8 +1,8 @@
-package sample.com.skyscanner;
+package sample.com.skyscanner.viewmodels;
 
 import java.util.Comparator;
 
-public class Output {
+public class FlightItemViewModel {
     String date;
     String time;
     String direct;
@@ -49,24 +49,9 @@ public class Output {
         this.airline = airline;
     }
 
-    public static Comparator<Output> PriceComparator = new Comparator<Output>() {
-        @Override
-        public int compare(Output o1, Output o2) {
-            return o1.getPrice().compareTo(o2.getPrice());
-        }
-    };
+    public static Comparator<FlightItemViewModel> PriceComparator = (o1, o2) -> o1.getPrice().compareTo(o2.getPrice());
 
-    public static Comparator<Output> DirectComparator = new Comparator<Output>() {
-        @Override
-        public int compare(Output o1, Output o2) {
-            return o1.getDirect().compareTo(o2.getDirect());
-        }
-    };
+    public static Comparator<FlightItemViewModel> DirectComparator = (o1, o2) -> o1.getDirect().compareTo(o2.getDirect());
 
-    public static Comparator<Output> TimeComparator = new Comparator<Output>() {
-        @Override
-        public int compare(Output o1, Output o2) {
-            return o1.getTime().compareTo(o2.getTime());
-        }
-    };
+    public static Comparator<FlightItemViewModel> TimeComparator = (o1, o2) -> o1.getTime().compareTo(o2.getTime());
 }

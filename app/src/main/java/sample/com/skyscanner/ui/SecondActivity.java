@@ -9,15 +9,15 @@ import androidx.lifecycle.LifecycleOwner;
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
-import sample.com.skyscanner.Input;
 import sample.com.skyscanner.R;
-import sample.com.skyscanner.SkyViewModel;
 import sample.com.skyscanner.databinding.ActivitySecondBinding;
+import sample.com.skyscanner.viewmodels.MainViewModel;
+import sample.com.skyscanner.viewmodels.SecondViewModel;
 
 public class SecondActivity extends AppCompatActivity implements LifecycleOwner {
 
     @Inject
-    SkyViewModel skyViewModel;
+    SecondViewModel secondViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +25,16 @@ public class SecondActivity extends AppCompatActivity implements LifecycleOwner 
         AndroidInjection.inject(this);
         ActivitySecondBinding activitySecondBinding = DataBindingUtil.setContentView(this, R.layout.activity_second);
 
-        Input input = new Input();
-        input.setOutDate(getIntent().getStringExtra("date"));
-        input.setOrigin(getIntent().getStringExtra("origin").toUpperCase().trim());
-        input.setDest(getIntent().getStringExtra("dest").toUpperCase().trim());
-        input.setCurrency(getIntent().getStringExtra("curr"));
+        MainViewModel mainViewModel = new MainViewModel();
+        mainViewModel.outDate.set(getIntent().getStringExtra("date"));
+        mainViewModel.origin.set(getIntent().getStringExtra("origin").toUpperCase().trim());
+        mainViewModel.dest.set(getIntent().getStringExtra("dest").toUpperCase().trim());
+        mainViewModel.currency.set(getIntent().getStringExtra("curr"));
 
-        setTitle("Flights from " + input.getOrigin() + " to " + input.getDest());
-        skyViewModel.setInput(input);
-        activitySecondBinding.setViewModel(skyViewModel);
+        setTitle("Flights from " + mainViewModel.origin.get() + " to " + mainViewModel.dest.get());
+        secondViewModel.setMainViewModel(mainViewModel);
+        activitySecondBinding.setViewModel(secondViewModel);
 
-        this.getLifecycle().addObserver(skyViewModel);
+        this.getLifecycle().addObserver(secondViewModel);
     }
 }

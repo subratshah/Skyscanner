@@ -14,32 +14,33 @@ import androidx.lifecycle.LifecycleOwner;
 
 import javax.inject.Inject;
 
-import sample.com.skyscanner.Input;
+import sample.com.skyscanner.viewmodels.MainViewModel;
 import sample.com.skyscanner.R;
 import sample.com.skyscanner.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements LifecycleOwner, AdapterView.OnItemSelectedListener {
 
     @Inject
-    Input input;
+    MainViewModel mainViewModel;
 
     Spinner spinner;
     Intent intent;
-    String[] currs;
+    String[] currencies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+        setTitle("Enter Flight Dertails");
         intent = new Intent(this, SecondActivity.class);
         spinner = findViewById(R.id.currSpinner);
-        currs = new String[]{"INR", "USD"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, currs);
+        currencies = new String[]{"INR", "USD"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, currencies);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        activityMainBinding.setViewModel(input);
+        activityMainBinding.setViewModel(mainViewModel);
     }
 
     public void onClickScan(View view) {
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner, A
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-        intent.putExtra("curr", currs[position]);
+        intent.putExtra("curr", currencies[position]);
     }
 
     @Override

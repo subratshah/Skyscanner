@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="sample.com.skyscanner.Output" />
+            type="sample.com.skyscanner.viewmodels.FlightItemViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -25,10 +25,10 @@
             <TextView
                 android:id="@+id/airline"
                 android:layout_width="wrap_content"
-                android:layout_height="16dp"
+                android:layout_height="wrap_content"
                 android:hint="airline"
                 android:text="@{viewModel.airline}"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/dateText" />
 
@@ -39,7 +39,7 @@
                 android:layout_marginStart="100dp"
                 android:hint="date"
                 android:text="@{viewModel.date}"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/airline" />
 
@@ -50,7 +50,7 @@
                 android:layout_marginStart="190dp"
                 android:hint="time"
                 android:text="@{viewModel.time}"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/airline" />
 
@@ -61,7 +61,7 @@
                 android:layout_marginStart="280dp"
                 android:hint="direct"
                 android:text="@{viewModel.direct}"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/dateText" />
 
@@ -72,7 +72,7 @@
                 android:layout_marginStart="350dp"
                 android:hint="price"
                 android:text="@{viewModel.price}"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/dateText" />
         </androidx.constraintlayout.widget.ConstraintLayout>

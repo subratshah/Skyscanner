@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="sample.com.skyscanner.Input" />
+            type="sample.com.skyscanner.viewmodels.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,7 +48,7 @@
             android:layout_marginEnd="8dp"
             android:hint="Origin code"
             android:singleLine="true"
-            android:text="BOM"
+            android:text="MAA"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintStart_toEndOf="@+id/originImage"
@@ -72,7 +72,7 @@
             android:layout_marginEnd="8dp"
             android:hint="Destination Code"
             android:singleLine="true"
-            android:text="MAA"
+            android:text="VNS"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/destImage"
             app:layout_constraintTop_toBottomOf="@+id/originText" />
@@ -126,8 +126,10 @@
             android:layout_height="80dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:background="@color/colorAccent"
             android:onClick="onClickScan"
             android:text="Scan the Sky"
+            android:textColor="@android:color/white"
             android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
