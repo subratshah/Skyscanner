@@ -31,6 +31,7 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
     public RecyclerAdapter adapter = new RecyclerAdapter(outputs);
     private int directOrder = -1;
     private int priceOrder = -1;
+    private int timeOrder = -1;
 
     @Inject
     public SkyViewModel(ScannerServiceManager scannerServiceManager) {
@@ -55,7 +56,8 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
                 if (String.valueOf(carrier.getCarrierId()).equals(quote.getOutboundLeg().getCarrierIds().get(0)))
                     output.setAirline(carrier.getName());
             }
-            output.setDate(quote.getQuoteDateTime());
+            output.setDate(quote.getOutboundLeg().getDepartureDate().substring(0, 10));
+            output.setTime(quote.getQuoteDateTime().substring(11));
             output.setDirect(quote.getDirect() ? "Direct" : "Indirect");
             output.setPrice(baseModel.getCurrencies().get(0).getSymbol() + quote.getMinPrice());
             outputs.add(output);
@@ -80,6 +82,17 @@ public class SkyViewModel extends ViewModel implements LifecycleObserver {
             directOrder = 1;
         } else {
             directOrder = -1;
+            Collections.reverse(outputs);
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    public void sortTime(View view) {
+        Collections.sort(outputs, Output.TimeComparator);
+        if (timeOrder < 0) {
+            timeOrder = 1;
+        } else {
+            timeOrder = -1;
             Collections.reverse(outputs);
         }
         adapter.notifyDataSetChanged();

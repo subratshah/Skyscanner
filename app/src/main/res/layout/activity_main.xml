@@ -23,6 +23,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="SKYSCANNER"
+            android:textColor="@android:color/background_dark"
             android:textSize="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +46,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="100dp"
             android:layout_marginEnd="8dp"
-            android:hint="ORIGIN"
+            android:hint="Origin code"
+            android:singleLine="true"
             android:text="BOM"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -68,7 +70,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="8dp"
-            android:hint="DESTINATION"
+            android:hint="Destination Code"
+            android:singleLine="true"
             android:text="MAA"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/destImage"
@@ -90,7 +93,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="8dp"
-            android:hint="Date of Journey"
+            android:hint="yyyy-mm-dd"
+            android:singleLine="true"
             android:text="2019-11-01"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/dateImage"
@@ -101,35 +105,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_monetization_on_black_24dp"
-            app:layout_constraintBottom_toBottomOf="@+id/currText"
+            app:layout_constraintBottom_toBottomOf="@+id/currSpinner"
             app:layout_constraintStart_toStartOf="@+id/originImage"
-            app:layout_constraintTop_toTopOf="@+id/currText" />
+            app:layout_constraintTop_toTopOf="@+id/currSpinner" />
 
-        <EditText
-            android:id="@+id/currText"
+        <Spinner
+            android:id="@+id/currSpinner"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="8dp"
-            android:hint="INR or USD"
-            android:text="INR"
+            android:spinnerMode="dropdown"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/currImage"
             app:layout_constraintTop_toBottomOf="@+id/dateText" />
 
         <Button
-            android:layout_width="180dp"
+            android:layout_width="250dp"
             android:layout_height="80dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:onClick="onClickScan"
-            android:text="Scan Sky"
+            android:text="Scan the Sky"
             android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/currText" />
+            app:layout_constraintTop_toBottomOf="@+id/currSpinner" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

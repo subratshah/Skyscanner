@@ -19,7 +19,7 @@ public class Input extends BaseObservable implements LifecycleObserver, Serializ
     }
 
     public String getOrigin() {
-        return origin.toUpperCase().trim();
+        return origin;
     }
 
     public void setOrigin(String origin) {
@@ -27,7 +27,7 @@ public class Input extends BaseObservable implements LifecycleObserver, Serializ
     }
 
     public String getDest() {
-        return dest.toUpperCase().trim();
+        return dest;
     }
 
     public void setDest(String dest) {
@@ -43,7 +43,7 @@ public class Input extends BaseObservable implements LifecycleObserver, Serializ
     }
 
     public String getCurrency() {
-        return currency.toUpperCase().trim();
+        return currency;
     }
 
     public void setCurrency(String currency) {

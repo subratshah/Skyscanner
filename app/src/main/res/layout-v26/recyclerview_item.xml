@@ -36,7 +36,7 @@
                 android:id="@+id/dateText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="120dp"
+                android:layout_marginStart="100dp"
                 android:hint="date"
                 android:text="@{viewModel.date}"
                 android:textSize="15sp"
@@ -47,6 +47,17 @@
                 android:id="@+id/timeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="190dp"
+                android:hint="time"
+                android:text="@{viewModel.time}"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/airline" />
+
+            <TextView
+                android:id="@+id/directText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="280dp"
                 android:hint="direct"
                 android:text="@{viewModel.direct}"
@@ -55,7 +66,7 @@
                 app:layout_constraintTop_toTopOf="@+id/dateText" />
 
             <TextView
-                android:id="@+id/directText"
+                android:id="@+id/priceText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="350dp"

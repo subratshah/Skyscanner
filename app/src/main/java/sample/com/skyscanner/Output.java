@@ -50,17 +50,23 @@ public class Output {
     }
 
     public static Comparator<Output> PriceComparator = new Comparator<Output>() {
-
         @Override
         public int compare(Output o1, Output o2) {
             return o1.getPrice().compareTo(o2.getPrice());
         }
     };
-    public static Comparator<Output> DirectComparator = new Comparator<Output>() {
 
+    public static Comparator<Output> DirectComparator = new Comparator<Output>() {
         @Override
         public int compare(Output o1, Output o2) {
             return o1.getDirect().compareTo(o2.getDirect());
+        }
+    };
+
+    public static Comparator<Output> TimeComparator = new Comparator<Output>() {
+        @Override
+        public int compare(Output o1, Output o2) {
+            return o1.getTime().compareTo(o2.getTime());
         }
     };
 }

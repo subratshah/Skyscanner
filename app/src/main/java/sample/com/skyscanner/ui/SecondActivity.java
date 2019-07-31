@@ -27,8 +27,8 @@ public class SecondActivity extends AppCompatActivity implements LifecycleOwner 
 
         Input input = new Input();
         input.setOutDate(getIntent().getStringExtra("date"));
-        input.setOrigin(getIntent().getStringExtra("origin"));
-        input.setDest(getIntent().getStringExtra("dest"));
+        input.setOrigin(getIntent().getStringExtra("origin").toUpperCase().trim());
+        input.setDest(getIntent().getStringExtra("dest").toUpperCase().trim());
         input.setCurrency(getIntent().getStringExtra("curr"));
 
         setTitle("Flights from " + input.getOrigin() + " to " + input.getDest());
