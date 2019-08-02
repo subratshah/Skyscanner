@@ -94,6 +94,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="8dp"
             android:hint="yyyy-mm-dd"
+            android:onClick="onClickDate"
             android:singleLine="true"
             android:text="2019-11-01"
             app:layout_constraintEnd_toEndOf="parent"
