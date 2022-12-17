@@ -1,18 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <variable
+            name="viewModel"
+            type="sample.com.skyscanner.viewmodels.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.MainActivity">
+
+        <TextView
+            android:id="@+id/brandText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="SKYSCANNER"
+            android:textColor="@android:color/background_dark"
+            android:textSize="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/originImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_flight_takeoff_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/originText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/originText" />
+
+        <EditText
+            android:id="@+id/originText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="8dp"
+            android:hint="Origin code"
+            android:singleLine="true"
+            android:text="MAA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/originImage"
+            app:layout_constraintTop_toBottomOf="@+id/brandText" />
+
+        <ImageView
+            android:id="@+id/destImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_flight_land_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/destText"
+            app:layout_constraintStart_toStartOf="@+id/originImage"
+            app:layout_constraintTop_toTopOf="@+id/destText" />
+
+        <EditText
+            android:id="@+id/destText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="8dp"
+            android:hint="Destination Code"
+            android:singleLine="true"
+            android:text="VNS"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/destImage"
+            app:layout_constraintTop_toBottomOf="@+id/originText" />
+
+        <ImageView
+            android:id="@+id/dateImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_date_range_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/dateText"
+            app:layout_constraintStart_toStartOf="@+id/originImage"
+            app:layout_constraintTop_toTopOf="@+id/dateText" />
+
+        <EditText
+            android:id="@+id/dateText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="8dp"
+            android:hint="yyyy-mm-dd"
+            android:onClick="onClickDate"
+            android:singleLine="true"
+            android:text="2019-11-01"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dateImage"
+            app:layout_constraintTop_toBottomOf="@+id/destText" />
+
+        <ImageView
+            android:id="@+id/currImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_monetization_on_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/currSpinner"
+            app:layout_constraintStart_toStartOf="@+id/originImage"
+            app:layout_constraintTop_toTopOf="@+id/currSpinner" />
+
+        <Spinner
+            android:id="@+id/currSpinner"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="8dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/currImage"
+            app:layout_constraintTop_toBottomOf="@+id/dateText" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorAccent"
+            android:onClick="onClickScan"
+            android:text="Scan the Sky"
+            android:textColor="@android:color/white"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currSpinner" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
